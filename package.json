@@ -1,24 +1,38 @@
 {
   "name": "nomenclador-salud-js",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.js", 
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "tsc",
+    "prepublish": "npm run build",
+    "lint": "eslint index.ts __test__ --fix"
   },
+  "author": "Embalsa <code@embalsa.com.ar>",
   "keywords": [],
-  "author": "",
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
     "@babel/preset-typescript": "^7.27.1",
     "@types/jest": "^29.5.14",
     "@types/lodash": "^4.17.16",
+    "eslint": "^8.56.0",
     "jest": "^29.7.0"
   },
   "dependencies": {
     "lodash": "^4.17.21",
     "ts-jest": "^29.3.4",
     "ts-node": "^10.9.2"
+  },
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
   }
 }
